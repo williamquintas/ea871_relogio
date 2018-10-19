@@ -15,7 +15,11 @@ void init_UART0() {
 	SET_BIT(SIM_SOPT2, 26);
 	UART0_BDH = 0;
 	UART0_BDL = 0x0C;
-	UART0_C2 = 0x0C;
+	UART0_C2 = 0xED;
+	UART0_C2 = 0x2C;
+	SET_BIT(NVIC_IPR7, 6);
+	SET_BIT(NVIC_IPR7, 7);
+	SET_BIT(NVIC_ISER, 12);
 }
 
 char getchar_UART0(void) {
