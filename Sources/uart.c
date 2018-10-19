@@ -14,7 +14,7 @@ void init_UART0() {
 	SIM_SOPT2 &= 0xF3FFFFFF;
 	SET_BIT(SIM_SOPT2, 26);
 	UART0_BDH = 0;
-	UART0_BDL = 0x22;
+	UART0_BDL = 0x0C;
 	UART0_C2 = 0x0C;
 }
 
