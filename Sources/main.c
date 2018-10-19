@@ -3,6 +3,7 @@
 #include "lcd.h"
 #include "uart.h"
 #include "derivative.h"
+#include "buffer.h"
 #define SET_BIT(reg, idx)	reg = (reg | (1 << idx))
 
 /**************************************
@@ -246,6 +247,10 @@ int main(void) {
 	hour_flag = 0;
 	displayInTerminal = 1;
 	displayInList = 0;
+	//Inicializando buffer circular
+	buffer_circular* buffer = buffer_init(255);
+	
+	//Lendo comandos
 	while (command != 27) {
 		//Imprimindo coisas
 		printInLCD(centsecond_char0, centsecond_char1, second_char0, second_char1, minute_char0, minute_char1, hour_char0, hour_char1);
