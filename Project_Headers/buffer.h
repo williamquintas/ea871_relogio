@@ -10,12 +10,13 @@
 
 typedef struct {
     char *buffer;
-    unsigned char head;
-    unsigned char tail;
-    unsigned char maxlen;
+    int head;
+    int tail;
+    int maxlen;
+    int numberOfItems;
 } buffer_circular;
 
-buffer_circular* buffer_init(unsigned char max);
+buffer_circular* buffer_init(int max);
 
 int buffer_push(buffer_circular *b, char data);
 

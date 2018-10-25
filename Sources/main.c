@@ -224,6 +224,8 @@ int main(void) {
 	init_GPIO_LCD();
 	init_LCD();
 	clear_LCD();
+	//Inicializando buffer circular
+	buffer_circular* buffer = buffer_init(2000);
 	//Colocando o cursor no local certo
 	putchar_UART0(27);
 	putchar_UART0(91);
@@ -247,8 +249,6 @@ int main(void) {
 	hour_flag = 0;
 	displayInTerminal = 1;
 	displayInList = 0;
-	//Inicializando buffer circular
-	buffer_circular* buffer = buffer_init(255);
 	
 	//Lendo comandos
 	while (command != 27) {
